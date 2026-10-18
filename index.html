@@ -183,7 +183,7 @@
     try { localStorage.setItem('bs-lang', l); } catch (e) {}
   }
   var saved = null; try { saved = localStorage.getItem('bs-lang'); } catch (e) {}
-  set(saved || ((navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en'));
+  set(saved === 'zh' ? 'zh' : 'en');   // English by default; 中文 only when the visitor picked it
   document.querySelectorAll('.lang-switch button').forEach(function (b) { b.addEventListener('click', function () { set(b.dataset.set); }); });
 })();
 </script>
